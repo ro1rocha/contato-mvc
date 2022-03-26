@@ -18,14 +18,16 @@ module.exports = {
         let idDoContato = req.params.id;
 
         //encontrar no array de contatos o id desejado
-        let contato = contatos.find(c=> {
-            return c.id == idDoContato)};
+        let contato = contatos.find(
+            (c) => {
+            return c.id == idDoContato)
+        };
 
         //retornar o contato para o cliente ou a mensagem de não existente
-        if(contato === undefined){
+        if(contato===undefined){
             res.send("O contato buscado não existe");
         };
-        else {
+            else{
             res.send(contato);
         }
     }
