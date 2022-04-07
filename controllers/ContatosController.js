@@ -7,7 +7,7 @@ module.exports = {
         //importar contato do usuario
         let contatos = require(`../database/contatos_${uid}.json`)
         //res.send("Olá... já ja eu mando seus contatos");
-        res.send(contatos);
+        res.render('home.ejs');
     },
 
     capturarContato: (req, res) => {
@@ -21,13 +21,12 @@ module.exports = {
         let contato = contatos.find(
             (c) => {
             return c.id == idDoContato)
-        };
-
+        }
         //retornar o contato para o cliente ou a mensagem de não existente
-        if(contato===undefined){
+        if(contato === undefined){
             res.send("O contato buscado não existe");
         };
-            else{
+        else{
             res.send(contato);
         }
     }
